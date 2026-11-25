@@ -1,0 +1,59 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0d1420; color: #eef2f8; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; touch-action: none; overscroll-behavior: none; }
+#app { position: fixed; inset: 0; display: flex; flex-direction: column; max-width: 520px; margin: 0 auto; background: #0d1420; }
+#stage { position: relative; flex: 1; min-height: 0; }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+#hud { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 8px; padding: calc(env(safe-area-inset-top) + 6px) 8px 6px; pointer-events: none; background: linear-gradient(rgba(5,10,20,.7), transparent); }
+#hud > * { pointer-events: auto; }
+#hud .mid { flex: 1; text-align: center; font-weight: 800; text-shadow: 0 2px 4px #000; }
+#hud .right { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 13px; font-weight: 700; color: #ffd23f; text-shadow: 0 1px 3px #000; }
+.ib { background: rgba(20,30,50,.85); border: 1px solid #3b4d70; color: #fff; border-radius: 10px; min-width: 44px; height: 34px; font-weight: 800; font-size: 12px; padding: 0 8px; touch-action: manipulation; }
+.xp { position: relative; height: 18px; margin-top: 3px; background: rgba(0,0,0,.6); border-radius: 7px; overflow: hidden; border: 1px solid #3b4d70; }
+.xp b { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #5aa9ff, #b56cff); }
+.xp span { position: relative; font-size: 11px; line-height: 16px; }
+
+#banner { position: absolute; left: 0; right: 0; top: 24%; text-align: center; font-size: 30px; font-weight: 900; color: #ffe066; text-shadow: 0 3px 8px #000, 0 0 2px #000; opacity: 0; transform: scale(.7); transition: opacity .25s, transform .25s; pointer-events: none; padding: 0 10px; }
+#banner.show { opacity: 1; transform: scale(1); }
+#countdown { display: none; position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-weight: 700; font-size: 14px; color: #cfe6ff; text-shadow: 0 2px 4px #000; pointer-events: none; }
+
+#bar { display: flex; gap: 6px; padding: 6px 6px calc(env(safe-area-inset-bottom) + 6px); background: #131c2e; border-top: 2px solid #26354f; }
+.grp { flex: 1; min-width: 0; border: 2px solid var(--c); border-radius: 12px; padding: 4px; background: rgba(255,255,255,.04); }
+.grp.down { filter: grayscale(1) brightness(.7); }
+.gname { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 800; color: var(--c); margin-bottom: 4px; gap: 2px; }
+.hpb { display: block; width: 100%; height: 5px; background: #000; border-radius: 3px; overflow: hidden; }
+.hpb b { display: block; height: 100%; width: 100%; background: #4cd964; }
+.btns { display: flex; gap: 4px; }
+.sk { position: relative; flex: 1; height: 64px; min-width: 0; border: 2px solid var(--c); border-radius: 10px; background: #1d2a44; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; overflow: hidden; padding: 0; touch-action: manipulation; }
+.sk.ready { background: #26406b; box-shadow: 0 0 10px var(--c) inset; }
+.sk:active { transform: scale(.94); }
+.sk .ic { width: 24px; height: 24px; border-radius: 50%; background: var(--c); color: #0d1420; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.sk .nm { font-size: 9px; font-weight: 700; line-height: 1; }
+.sk .cdo { position: absolute; inset: 0; pointer-events: none; }
+.sk .cdt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; text-shadow: 0 2px 4px #000; pointer-events: none; }
+
+.screen { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; background: rgba(8,12,22,.9); text-align: center; overflow: auto; z-index: 5; }
+.screen.on { display: flex; }
+#menu { background: radial-gradient(circle at 50% 30%, #25406a, #0b111d 70%); }
+h1 { font-size: 54px; line-height: 1; margin: 0 0 4px; color: #ffe066; text-shadow: 0 4px 0 #8a4b0f, 0 8px 18px #000; letter-spacing: 2px; }
+h2 { margin: 0; font-size: 28px; color: #ffe066; }
+.sub { margin: 0 0 8px; color: #b9c7e0; }
+.info { margin: 0; color: #ffd23f; font-weight: 700; }
+.btn { width: min(280px, 80%); padding: 16px; font-size: 20px; font-weight: 900; border-radius: 14px; border: 0; color: #1b1203; background: linear-gradient(#ffd966, #f0a020); box-shadow: 0 4px 0 #8a5a0f; touch-action: manipulation; }
+.btn.alt { background: #2a3b5c; color: #fff; box-shadow: 0 4px 0 #162033; font-size: 17px; padding: 12px; }
+.btn.small { width: auto; padding: 8px 14px; font-size: 15px; }
+.btn:active { transform: translateY(2px); }
+.btn:disabled { opacity: .4; }
+#upgList { width: min(340px, 100%); display: flex; flex-direction: column; gap: 10px; }
+.upg { background: #1a2640; border: 1px solid #33466b; border-radius: 12px; padding: 10px; text-align: left; display: flex; flex-direction: column; gap: 6px; }
+.upg .ut { display: flex; justify-content: space-between; } .upg p { margin: 0; font-size: 13px; color: #b9c7e0; }
+.upg .btn { align-self: flex-end; }
+.big { font-size: 52px; font-weight: 900; color: #ffe066; }
+.rec { color: #7dff9b; }
+#goBody table { margin: 8px auto; border-collapse: collapse; min-width: 240px; } #goBody td { padding: 5px 10px; border-bottom: 1px solid #2c3d5e; text-align: left; } #goBody td + td { text-align: right; font-weight: 800; color: #ffd23f; }
+#cards { display: flex; flex-direction: column; gap: 10px; width: min(340px, 100%); }
+.card { text-align: left; background: #1a2640; border: 2px solid var(--c); color: #fff; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; touch-action: manipulation; }
+.card small { color: var(--c); font-weight: 800; text-transform: uppercase; font-size: 11px; }
+.card b { font-size: 19px; } .card p { margin: 0; font-size: 13px; color: #c3d0e8; }
+.card:active { transform: scale(.97); background: #22335a; }
+@media (max-height: 640px) { .screen { gap: 8px; padding: 10px; } h1 { font-size: 40px; } .sk { height: 56px; } }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#101826">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Bastião Final</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="hud">
+      <button id="btnPause" class="ib" aria-label="Pausar">II</button>
+      <div class="mid">
+        <div id="waveTxt">Onda 0</div>
+        <div class="xp"><b id="xpFill"></b><span id="lvTxt">Nv 1</span></div>
+      </div>
+      <div class="right"><div id="goldTxt">Ouro 0</div><button class="ib muteBtn">Som: ON</button></div>
+    </div>
+    <div id="banner"></div>
+    <div id="countdown"></div>
+  </div>
+  <div id="bar"></div>
+
+  <section id="menu" class="screen on">
+    <h1>Bastião<br>Final</h1>
+    <p class="sub">Defenda o castelo com três heróis!</p>
+    <button id="btnPlay" class="btn">Jogar</button>
+    <button id="btnUpg" class="btn alt">Melhorias</button>
+    <button id="btnRec" class="btn alt">Recorde</button>
+    <button class="btn alt muteBtn">Som: ON</button>
+    <p id="menuBest" class="info"></p>
+    <p id="menuGold" class="info"></p>
+  </section>
+
+  <section id="upgrades" class="screen">
+    <h2>Melhorias</h2>
+    <p id="upgGold" class="info"></p>
+    <div id="upgList"></div>
+    <button class="btn alt back">Voltar</button>
+  </section>
+
+  <section id="record" class="screen">
+    <h2>Recorde</h2>
+    <div id="recBody"></div>
+    <button class="btn alt back">Voltar</button>
+  </section>
+
+  <section id="pause" class="screen">
+    <h2>Pausado</h2>
+    <button id="btnResume" class="btn">Continuar</button>
+    <button class="btn alt muteBtn">Som: ON</button>
+    <button id="btnQuit" class="btn alt">Sair para o menu</button>
+  </section>
+
+  <section id="levelup" class="screen">
+    <h2>Subiu de nível!</h2>
+    <p class="sub">Escolha uma melhoria</p>
+    <div id="cards"></div>
+  </section>
+
+  <section id="gameover" class="screen">
+    <h2>Castelo destruído</h2>
+    <div id="goBody"></div>
+    <button id="btnRetry" class="btn">Jogar de novo</button>
+    <button id="btnMenu2" class="btn alt">Menu</button>
+  </section>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
