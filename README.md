@@ -2,6 +2,8 @@
 
 Jogo de defesa de castelo para celular (PWA), feito com HTML5 Canvas e JavaScript puro, sem build e sem dependências externas. Todos os gráficos e sons são gerados por código. Inspirado no gênero de defesa de castelo cooperativo, mas com nomes e arte originais.
 
+**▶ Jogar:** https://eitorbrandao.github.io/last-castle/
+
 ## Como jogar
 
 - Você controla **3 heróis** ao mesmo tempo, posicionados na frente do castelo. Eles atacam automaticamente o inimigo mais próximo.
@@ -28,7 +30,7 @@ python3 -m http.server 8000
 
 1. Crie um repositório no GitHub e envie os arquivos desta pasta para a raiz da branch `main`.
 2. Em **Settings > Pages**, escolha *Deploy from a branch*, branch `main`, pasta `/ (root)`.
-3. Acesse `https://SEU-USUARIO.github.io/NOME-DO-REPO/`.
+3. Acesse https://eitorbrandao.github.io/last-castle/.
 
 Todos os caminhos são relativos, então funciona em subpastas. Para instalar como app, use "Adicionar à tela inicial". Após a primeira visita o jogo funciona offline (service worker). Ao alterar arquivos, aumente a versão `CACHE` em `sw.js`.
 
